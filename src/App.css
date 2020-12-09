@@ -1,8 +1,6 @@
-.questionCard_profilePicture {
-    color: transparent;
-    width: 200px !important;
-    height: 200px !important;
-    object-fit: cover;
-    text-align: center;
-    text-indent: 10000px;
+.app {
+  display: grid;
+  align-items: center;
+  place-items: center;
+  margin-top: 20px;
 }
