@@ -1,14 +1,33 @@
 import React from 'react'
 import './QuestionCard.css'
-import logo from './logo.svg';
 import { Avatar } from '@material-ui/core'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
-function QuestionCard() {
+function QuestionCard(reputation) {
+    const openQuestionDetailsModal = () => {
+
+    }
     return (
-        <div className='questionCard'>
+        <div className='questionCard' onClick={openQuestionDetailsModal}>
             <div className="questionCard_top">
-                <Avatar className='questionCard_profilePicture' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
+                {0 < reputation && reputation <= 50 ? (
+                                <div>
+                                    <Avatar className='questionCard_profileRepuLow' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
+                                </div>
+                ) : 50 < reputation && reputation <= 100 ? (
+                            <div>
+                                <Avatar className='questionCard_profileRepuMedium' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
+                            </div>
+                ) : reputation > 100 ? (
+                        <div>
+                            <Avatar className='questionCard_profileRepuHigh' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
+                        </div>
+                ) : (
+                    <div>
+                        <Avatar className='questionCard_profileRepuNor' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
+                    </div>
+                )}
+                {/* <Avatar className='questionCard_profilePicture' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/> */}
                 <div className="questionCard_topInfo">
                     <div className="questionCard_topTitle">
                         Question Title
@@ -23,7 +42,7 @@ function QuestionCard() {
                     Username
                 </div>
                 <div className="questionCard_middleUpvotes">
-                    <ArrowUpwardIcon />
+                    <ArrowUpwardIcon className='questionCard_middleUpvotesArrow'/>
                     Upvotes
                 </div>
             </div>
