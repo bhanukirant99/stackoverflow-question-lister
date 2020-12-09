@@ -1,9 +1,10 @@
 import './App.css';
+import QuestionCard from './QuestionCard'
 
 function App() {
   return (
     <div className="app">
-      Test
+      <QuestionCard />
     </div>
   );
 }
