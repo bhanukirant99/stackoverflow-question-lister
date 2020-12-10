@@ -37,6 +37,20 @@
     align-items: center;    
 }
 
+.questionCard_topInfo:hover {
+    cursor: pointer;
+}
+
+.questionCard_middleUserName, .questionCard_middleUpvotes:hover {
+    cursor: pointer;
+}
+
+.questionCard_bottomTag_1, .questionCard_bottomTag_2, .questionCard_bottomTag_3:hover {
+    cursor: pointer;
+}
+
+
+
 .questionCard_topTitle {
     padding: 5px;
     font-weight: 600;
