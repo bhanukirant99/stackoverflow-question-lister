@@ -1,29 +1,13 @@
 import React from 'react'
 import './QuestionCard.css'
-import { Avatar } from '@material-ui/core'
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ProfilePic from './subcomponents/ProfilePic';
 
-function QuestionCard(reputation) {
+function QuestionCard() {
     return (
         <div className='questionCard'>
             <div className="questionCard_top">
-                {0 < reputation && reputation <= 50 ? (
-                                <div>
-                                    <Avatar className='questionCard_profileRepuLow' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
-                                </div>
-                ) : 50 < reputation && reputation <= 100 ? (
-                            <div>
-                                <Avatar className='questionCard_profileRepuMedium' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
-                            </div>
-                ) : reputation > 100 ? (
-                        <div>
-                            <Avatar className='questionCard_profileRepuHigh' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
-                        </div>
-                ) : (
-                    <div>
-                        <Avatar className='questionCard_profileRepuNor' src='https://avatars.dicebear.com/4.5/api/human/1.svg'/>
-                    </div>
-                )}
+                <ProfilePic />
                 <div className="questionCard_topInfo">
                     <div className="questionCard_topTitle">
                         Question Title

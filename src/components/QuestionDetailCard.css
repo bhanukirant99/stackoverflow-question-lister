@@ -1,67 +1,54 @@
-.questionCard {
+.questionDetailCard {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
     max-width: 100%;
     min-height: fit-content;
-    height: 300px;
-    width: 650px;
+    height: 630px;
+    width: 700px;
     max-height: 900px;
     border: 1px solid black;
     background-color: #ededed;
     box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 30px;
+    margin-top: 10vh;
 }
 
-.questionCard_profilePicture {
-    border: 5px solid black;
-    border-radius: 200px;
-    height: 100px !important;
-    width: 100px !important;
-    color: transparent;
-    object-fit: cover;
-    text-align: center;
-    text-indent: 10000px;
-    margin: 10px;
-}
-
-.questionCard_top {
+.questionDetailCard_top {
     display: flex;
 }
 
-.questionCard_topInfo {
+.questionDetailCard_profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionDetailCard_profileserName {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+
+.questionDetailCard_topInfo {
     display: flex;
     flex-direction: column;
     flex: 1;
     align-items: center;    
 }
 
-.questionCard_topInfo:hover {
-    cursor: pointer;
-}
-
-.questionCard_middleUserName, .questionCard_middleUpvotes:hover {
-    cursor: pointer;
-}
-
-.questionCard_bottomTag_1, .questionCard_bottomTag_2, .questionCard_bottomTag_3:hover {
-    cursor: pointer;
-}
-
-
-
-.questionCard_topTitle {
+.questionDetailCard_topTitle {
     padding: 5px;
     font-weight: 600;
     font-size: 25px;
 }
 
-.questionCard_topQuestion {
-    padding: 5px;
-}
+.questionDetailCard_questionDescription {
+    display: flex;
+    justify-content: center
+;}
 
-.questionCard_middle {
+.questionDetailCard_middle {
     display: flex;
     justify-content: space-between;
     min-width: 700px;
@@ -71,33 +58,38 @@
     margin-right: 20px;
     min-height: fit-content;
     margin-top: 20px;
-    height: 100px;
+    height: 80px;
 }
 
-.questionCard_middleUpvotes {
+.questionDetailCard_middleUpvotesArrow {
+    height: 20px;
+    width: 20px;
+}
+
+.questionDetailCard_middleUpvotes {
     display: flex;
 }
 
-.questionCard_bottom {
+.questionDetailCard_bottom {
     display: flex;
     justify-content: space-between;
     margin-left: 70px;
     margin-right: 70px;
 }
 
-.questionCard_bottomTag_1 {
+.questionDetailCard_bottomTag_1 {
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
 }
 
-.questionCard_bottomTag_2 {
+.questionDetailCard_bottomTag_2 {
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;
 }
 
-.questionCard_bottomTag_3 {
+.questionDetailCard_bottomTag_3 {
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px;

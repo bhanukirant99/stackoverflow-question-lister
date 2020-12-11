@@ -1,0 +1,26 @@
+.profilePic_repuNor{
+    border: 5px solid black;
+}
+
+.profilePic_repuLow {
+    border: 5px solid pink;
+}
+
+.profilePic_repuMedium {
+    border: 5px solid blue;
+}
+
+.profilePic_repuHigh {
+    border: 5px solid red;
+}
+
+.profilePicStyle {
+    border-radius: 200px;
+    height: 100px !important;
+    width: 100px !important;
+    color: transparent;
+    object-fit: cover;
+    text-align: center;
+    text-indent: 10000px;
+    margin: 10px;
+}

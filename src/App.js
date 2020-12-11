@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
-import QuestionCard from './QuestionCard'
+import QuestionCard from './components/QuestionCard'
+import QuestionDetailCard from './components/QuestionDetailCard'
 import Model from 'react-model'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
 
   return (
     <div className="app">
-                  <QuestionCard />
+                  {/* <QuestionCard /> */}
+                  <QuestionDetailCard />
 
       {/* <div  onClick={() => setIsModelOpen(true)}>
         <Model isOpen={isModelOpen} onClose={() => setIsModelOpen(false)}>
