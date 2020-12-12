@@ -3,9 +3,9 @@ import './QuestionCard.css'
 import ArrowUpwardTwoToneIcon from '@material-ui/icons/ArrowUpwardTwoTone';
 import ProfilePic from './subcomponents/ProfilePic';
 import QuestionDetailCard from './QuestionDetailCard'
-import Popup from './Popup'
+// import Popup from './Popup'
 
-function QuestionCard({profilePicture, reputation, userName, title, upvotes, tags}) {
+function QuestionCard({profilePicture, reputation, userName, title, upvotes, tags, link, views, askedAt, answerCount}) {
     const [isOpen, setIsOpen] = useState(false);
 
     const togglePopup = () => {
@@ -15,7 +15,7 @@ function QuestionCard({profilePicture, reputation, userName, title, upvotes, tag
     return (
         <div className='questionCard'>
             {isOpen && <QuestionDetailCard
-                handleClose={togglePopup}
+                handleClose={togglePopup} profilePicture={profilePicture} reputation={reputation} userName={userName} title={title} upvotes={upvotes} tags={tags} link={link} views={views} askedAt={askedAt} answerCount={answerCount}
             />}
             {/* {isOpen && <Popup
             content={<>

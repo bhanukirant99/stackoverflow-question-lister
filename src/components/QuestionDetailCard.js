@@ -4,15 +4,15 @@ import ArrowUpwardTwoToneIcon from '@material-ui/icons/ArrowUpwardTwoTone';
 import CallMadeTwoToneIcon from '@material-ui/icons/CallMadeTwoTone';
 import ProfilePic from './subcomponents/ProfilePic';
 
-function QuestionDetailCard({handleClose}) {
+function QuestionDetailCard({handleClose, profilePicture, reputation, userName, title, upvotes, tags, link, views, askedAt, answerCount}) {
     return (
         <div className="questionDetailCard">
               <div className='questionDetailsCardBlock'>
                 <div className="questionDetailCard_top">
                     <div className="questionDetailCard_profile">
-                        <ProfilePic />
+                        <ProfilePic profilePicture={profilePicture} reputation={reputation}/>
                         <div className="questionDetailCard_profileserName">
-                            Username
+                            {userName}
                         </div>
                     </div>
                     <div className="questionDetailCard_topInfo">
@@ -20,48 +20,48 @@ function QuestionDetailCard({handleClose}) {
                             X
                         </div>
                         <div className="questionDetailCard_topTitle">
-                            Question Title: Title title Title title Title title Title title Title title
-                            Title titleTitle titleTitle titleTitle titleTitle title
+                            Question Title: {title}
                         </div>
                     </div>
                 </div>
                 <div className="questionDetailCard_questionDescription">
-                            Question DescQuestion DescQuestion DescQuestion DescQuestion DescQuestion Desc
+                            Question Description: Question DescQuestion DescQuestion DescQuestion DescQuestion Desc
                             Question DescQuestion Desc
                         </div>
                 <div className="questionDetailCard_middle">
                     <div className="questionDetailCard_middleViews">
-                        Views: 0
-                        <div className="questionDetailCard_middleViews">
-                            answered
+                        Views: {views}
+                        <div className="questionDetailCard_middleAns">
+                            {answerCount > 0 
+                            ? (
+                                <span>Answered</span>
+                            ) : (
+                                <span>Unanswered</span>
+                            )}
                         </div>                
                     </div>
                     <div className="questionDetailCard_middleTime">
-                        Asked at: 11-12-2020 22:23:22
+                        Asked at: {askedAt.toString().split(0,1)} hrs
                     </div>
                     <div className="questionDetailCard_middleUpvotes">
                         <ArrowUpwardTwoToneIcon className='questionDetailCard_middleUpvotesArrow'/>
-                        Upvotes
+                        {upvotes}
                     </div>
                 </div>
-                <div className="questionDetailCard_bottom">
-                    <div className="questionDetailCard_bottomTag_1">
-                        Tag 1
+                <div className="questionDetailCard_bottomTags">
+                        {tags?.map(tag => (
+                            <div className="questionDetailCard_bottomTag">
+                                {tag}
+                            </div>
+                        ))}
                     </div>
-                    <div className="questionDetailCard_bottomTag_2">
-                        Tag 2
-                    </div>
-                    <div className="questionDetailCard_bottomTag_3">
-                        Tag 3
-                    </div>
-                </div>
                 <div className="questionDetailCard_baseBottom">
-                    <span className="questionDetailCard_baseBottomView">
+                    <a href={link} target="_blank" className="questionDetailCard_baseBottomView">
                         <span className='questionDetailCard_baseBottomCont'>
                             View in Stackoverflow
                         </span>
                         <CallMadeTwoToneIcon className='questionDetailCard_baseBottomArrow'/>
-                    </span>
+                    </a>
                 </div>
             </div>  
         </div>

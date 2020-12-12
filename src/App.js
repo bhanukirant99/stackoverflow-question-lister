@@ -19,7 +19,7 @@ function App() {
       </div>
       <div className="questionCards">
         {data.items?.map(item => (
-        <QuestionCard profilePicture={item.owner.profile_image} reputation={item.owner.reputation} userName={item.owner.display_name} title={item.title} upvotes={item.score} tags={item.tags}/>
+        <QuestionCard profilePicture={item.owner.profile_image} reputation={item.owner.reputation} userName={item.owner.display_name} title={item.title} upvotes={item.score} tags={item.tags} link={item.link} views={item.view_count} askedAt={item.creation_date} answerCount={item.answer_count}/>
       ))}
       </div>
                   {/* <QuestionDetailCard /> */}
