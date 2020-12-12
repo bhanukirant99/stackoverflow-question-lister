@@ -1,34 +1,51 @@
 import React, { useState } from 'react'
 import './App.css';
 import QuestionCard from './components/QuestionCard'
-import QuestionDetailCard from './components/QuestionDetailCard'
-import Model from 'react-model'
 import Response from './response'
-import SearchIcon from '@material-ui/icons/Search';
+import { useStateValue } from './StateProvider';
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function App() {
-  const [isModelOpen, setIsModelOpen] = useState(false)
   const [input, setInput] = useState('');
+  const [{items}, dispatch] = useStateValue()
+
+  // const addToBasket = () => {
+  //     // console.log(basket)
+  //     dispatch({
+  //         type: "ADD_TO_ITEMS",
+  //         item: {
+  //             id: id,
+  //             title: title,
+  //             image: image,
+  //             price: price,
+  //             rating: rating,
+  //         },
+  //     });
+  // };
 
   const data = Response
-  console.log(data)
   return (
     <div className="app">
       <div className="searchBar">
         <input className='searchBarInput' value={input} onChange={e => setInput(e.target.value)} placeholder='Search'/>
       </div>
       <div className="questionCards">
+        
         {data.items?.map(item => (
-        <QuestionCard profilePicture={item.owner.profile_image} reputation={item.owner.reputation} userName={item.owner.display_name} title={item.title} upvotes={item.score} tags={item.tags} link={item.link} views={item.view_count} askedAt={item.creation_date} answerCount={item.answer_count}/>
+        <QuestionCard profilePicture=
+          {item.owner.profile_image} 
+          reputation={item.owner.reputation} 
+          userName={item.owner.display_name} 
+          title={item.title} 
+          upvotes={item.score} 
+          tags={item.tags} 
+          link={item.link}
+          views={item.view_count} 
+          askedAt={item.creation_date} 
+          answerCount={item.answer_count}
+        />
       ))}
       </div>
-                  {/* <QuestionDetailCard /> */}
-
-      {/* <div  onClick={() => setIsModelOpen(true)}>
-        <Model isOpen={isModelOpen} onClose={() => setIsModelOpen(false)}>
-            <QuestionCard />
-        </Model>
-      </div> */}
     </div>
   );
 }

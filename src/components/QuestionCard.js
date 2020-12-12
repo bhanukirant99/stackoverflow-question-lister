@@ -15,7 +15,17 @@ function QuestionCard({profilePicture, reputation, userName, title, upvotes, tag
     return (
         <div className='questionCard'>
             {isOpen && <QuestionDetailCard
-                handleClose={togglePopup} profilePicture={profilePicture} reputation={reputation} userName={userName} title={title} upvotes={upvotes} tags={tags} link={link} views={views} askedAt={askedAt} answerCount={answerCount}
+                handleClose={togglePopup} 
+                profilePicture={profilePicture} 
+                reputation={reputation} 
+                userName={userName} 
+                title={title} 
+                upvotes={upvotes} 
+                tags={tags} 
+                link={link} 
+                views={views} 
+                askedAt={askedAt} 
+                answerCount={answerCount}
             />}
             {/* {isOpen && <Popup
             content={<>
