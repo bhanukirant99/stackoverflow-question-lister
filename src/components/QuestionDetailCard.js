@@ -1,6 +1,7 @@
 import React from 'react'
 import './QuestionDetailCard.css'
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ArrowUpwardTwoToneIcon from '@material-ui/icons/ArrowUpwardTwoTone';
+import CallMadeTwoToneIcon from '@material-ui/icons/CallMadeTwoTone';
 import ProfilePic from './subcomponents/ProfilePic';
 
 function QuestionDetailCard() {
@@ -14,23 +15,31 @@ function QuestionDetailCard() {
                     </div>
                 </div>
                 <div className="questionDetailCard_topInfo">
+                    <div className="questionDetailCard_topInfoClose">
+                        X
+                    </div>
                     <div className="questionDetailCard_topTitle">
-                        Question Title
+                        Question Title: Title title Title title Title title Title title Title title
+                        Title titleTitle titleTitle titleTitle titleTitle title
                     </div>
                 </div>
             </div>
             <div className="questionDetailCard_questionDescription">
-                        Question Desc
+                        Question DescQuestion DescQuestion DescQuestion DescQuestion DescQuestion Desc
+                        Question DescQuestion Desc
                     </div>
             <div className="questionDetailCard_middle">
                 <div className="questionDetailCard_middleViews">
                     Views: 0
+                    <div className="questionDetailCard_middleViews">
+                        answered
+                    </div>                
                 </div>
                 <div className="questionDetailCard_middleTime">
                     Asked at: 11-12-2020 22:23:22
                 </div>
                 <div className="questionDetailCard_middleUpvotes">
-                    <ArrowUpwardIcon className='questionDetailCard_middleUpvotesArrow'/>
+                    <ArrowUpwardTwoToneIcon className='questionDetailCard_middleUpvotesArrow'/>
                     Upvotes
                 </div>
             </div>
@@ -46,12 +55,12 @@ function QuestionDetailCard() {
                 </div>
             </div>
             <div className="questionDetailCard_baseBottom">
-                <div className="questionDetailCard_baseBottom">
-                    View in Stackoverflow
-                </div>
-                <div className="questionDetailCard_baseBottom">
-                    <ArrowUpwardIcon className='questionDetailCard_baseBottom'/>
-                </div>
+                <span className="questionDetailCard_baseBottomView">
+                    <span className='questionDetailCard_baseBottomCont'>
+                        View in Stackoverflow
+                    </span>
+                    <CallMadeTwoToneIcon className='questionDetailCard_baseBottomArrow'/>
+                </span>
             </div>
         </div>
     )

@@ -9,8 +9,8 @@ function App() {
 
   return (
     <div className="app">
-                  {/* <QuestionCard /> */}
-                  <QuestionDetailCard />
+                  <QuestionCard />
+                  {/* <QuestionDetailCard /> */}
 
       {/* <div  onClick={() => setIsModelOpen(true)}>
         <Model isOpen={isModelOpen} onClose={() => setIsModelOpen(false)}>
