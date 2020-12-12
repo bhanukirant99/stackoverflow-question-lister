@@ -18,9 +18,8 @@
     border-radius: 200px;
     height: 100px !important;
     width: 100px !important;
-    color: transparent;
-    object-fit: cover;
     text-align: center;
-    text-indent: 10000px;
     margin: 10px;
+    position: static !important;
+    /* position: ; */
 }

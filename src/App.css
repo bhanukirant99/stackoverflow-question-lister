@@ -4,3 +4,21 @@
   place-items: center;
   margin-top: 20px;
 }
+
+.searchBar {
+  width: 900px;
+  height: 60px;
+  background-color: silver;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.searchBarInput {
+  background-color: silver;
+  flex: 1;
+  font-size: 30px;
+  outline-width: 0;
+  border: none;
+}
