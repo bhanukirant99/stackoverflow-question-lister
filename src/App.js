@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
 import QuestionCard from './components/QuestionCard'
-import Response from './response'
 import InfiniteScroll from "react-infinite-scroll-component";
 
 export default() => {
-  const data = Response
   const pageNo = 1
   const [input, setInput] = useState('');
   const [currentItems, setCurrentItems] = useState();
@@ -18,7 +16,6 @@ export default() => {
     const resData = await response.json();
     setCurrentPageNo(currentPageNo + 1)
     console.log(resData.itemd)
-    // pageNo += 1;
     const [items] = resData.items
     setCurrentItems(resData.items)
     setHasMore(resData.has_more)
@@ -35,7 +32,6 @@ export default() => {
   }
 
   const getSearchItems = () => {
-    setSearchItems([])
     currentItems.map(item => {
       const title = item.title;
       const author = item.title;
@@ -65,7 +61,6 @@ export default() => {
         setSearchItems([...searchItems, item])
       }
     })
-    console.log("searchitems: ", searchItems)
   }
 
   return (
@@ -125,35 +120,7 @@ export default() => {
               ))
             )
           }
-          {/* {currentItems?.map(item => (
-            <QuestionCard 
-              profilePicture={item.owner.profile_image} 
-              reputation={item.owner.reputation} 
-              userName={item.owner.display_name} 
-              title={item.title} 
-              upvotes={item.score} 
-              tags={item.tags} 
-              link={item.link}
-              views={item.view_count} 
-              askedAt={item.creation_date} 
-              isAnswered={item.is_answered}
-            />
-          ))} */}
         </InfiniteScroll>
-        {/* {currentItems && currentItems?.map(item => (
-          <QuestionCard 
-            profilePicture={item.owner.profile_image} 
-            reputation={item.owner.reputation} 
-            userName={item.owner.display_name} 
-            title={item.title} 
-            upvotes={item.score} 
-            tags={item.tags} 
-            link={item.link}
-            views={item.view_count} 
-            askedAt={item.creation_date} 
-            answerCount={item.answer_count}
-          />
-        ))} */}
       </div>
     </div>
   );
