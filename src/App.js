@@ -5,70 +5,114 @@ import Response from './response'
 // import { useStateValue } from './StateProvider';
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const useFetch = (pageNo, getMore) => {
-  const [fetchedItems, setFetchedItems]= useState([]);
-  const [hasMore, setHasMore]= useState(false);
-  // const [quotaReamining, setQuotaReamining] = useState(0);
+export default() => {
+  const data = Response
+  const items = 1
+  const [input, setInput] = useState('');
+  const [currentItems, setCurrentItems] = useState();
+  // const [hasMore, setHasMore] = useState(true);
+  const [NumberOfItems, setNumberOfItems] = useState(items)
+  // const [fetchedItems, setFetchedItems]= useState([]);
+  // const [getMore, setGetMore]= useState(true);
 
   useEffect(async () => {
-    const response = await fetch(`https://api.stackexchange.com/2.2/questions?order=desc&sort=hot&site=stackoverflow&page=${pageNo}`);
+    const response = await fetch(`https://api.stackexchange.com/2.2/questions?order=desc&sort=hot&site=stackoverflow&page=1`);
     const resData = await response.json();
-    pageNo.value += 1;
-    setFetchedItems(resData.items);
-    setHasMore(resData.has_more);
-    // setQuotaReamining(resData.quota_remaining);
-  }, [getMore]);
-  return {fetchedItems, hasMore}
-}
+    console.log(resData.itemd)
+    // pageNo += 1;
+    const [items] = resData.items
+    setCurrentItems(resData.items)
+    // setCurrentItems([...currentItems, resData.items.map(item => {
+    //   return {
+    //     item  
+    //   }
+    // })])
+    // setCurrentItems(currentItems => currentItems.map(item => ({...item, {
+    //   tags: item.tags,
+    //   owner: item.owner,
+    //   is_answered: item.is_answered,
+    //   view_count: item.view_count,
+    //   score: item.score,
+    //   creation_date: item.creation_date,
+    //   link: item.link,
+    //   title: item.title,
+    // }})));
+    // resData.items.map(item => {
+    //   setCurrentItems([...currentItems, {
+    //     tags: item.tags,
+    //     owner: item.owner,
+    //     is_answered: item.is_answered,
+    //     view_count: item.view_count,
+    //     score: item.score,
+    //     creation_date: item.creation_date,
+    //     link: item.link,
+    //     title: item.title,
+    //   }])
+    // })
+    // resData.items.map(item => {
+    //     console.log( {
+    //       tags: item.tags,
+    //       owner: item.owner,
+    //       is_answered: item.is_answered,
+    //       view_count: item.view_count,
+    //       score: item.score,
+    //       creation_date: item.creation_date,
+    //       link: item.link,
+    //       title: item.title,
+    //     })
+    //   })
+  }, []);
 
-export default () => {
-  const data = Response
-  const [input, setInput] = useState('');
-  // const [{items}, dispatch] = useStateValue()
-  const [currentItems, setCurrentItems]= useState({});
-  // const [hasMore, setHasMore]= useState(false);
-  const [getMore, setGetMore]= useState(true);
-  const pageNo = 1
+  // while (hasMore) {
+  //   const getData = async() => {
+  //     const response = await fetch(`https://api.stackexchange.com/2.2/questions?order=desc&sort=hot&site=stackoverflow&page=${pageNo}`);
+  //     const resData = await response.json();
+  //     const [items] = await resData.items;
+  //     console.log(resData.items);
+  //     console.log(resData)
+  //     const success = await setCurrentItems(resData.items)
+  //     setHasMore(resData.has_more);
+  //     // setQuotaReamining(resData.quota_remaining);
+  //   }
+  //   pageNo += 1;
+  //   getData()
+  // }
 
-  const style = {
-    height: 30,
-    border: "1px solid green",
-    margin: 6,
-    padding: 8
-  };
-
+  console.log("currentitems: ", currentItems)
   
-  // console.log("hasMore: "+ hasMore)
-  console.log(currentItems)
-  // console.log(typeof(currentItems))
+//   const useFetch = (pageNo, getMore) => {
+//   const [fetchedItems, setFetchedItems]= useState([]);
+//   const [hasMore, setHasMore]= useState(false);
+//   // const [quotaReamining, setQuotaReamining] = useState(0);
 
-  // const addToBasket = () => {
-  //     // console.log(basket)
-  //     dispatch({
-  //         type: "ADD_TO_ITEMS",
-  //         item: {
-  //             id: id,
-  //             title: title,
-  //             image: image,
-  //             price: price,
-  //             rating: rating,
-  //         },
+//   useEffect(async () => {
+//     const response = await fetch(`https://api.stackexchange.com/2.2/questions?order=desc&sort=hot&site=stackoverflow&page=${pageNo}`);
+//     const resData = await response.json();
+//     pageNo.value += 1;
+//     setFetchedItems(resData.items);
+//     setHasMore(resData.has_more);
+//     // setQuotaReamining(resData.quota_remaining);
+//   }, [getMore]);
+//   return {fetchedItems, hasMore}
+// }
+  
+  // const fetchMoreData = () => {
+  //   if (!hasMore) {
+  //     return;
+  //   }
+  //   if (currentItems.length >= 30) {
+  //     setHasMore(false);
+  //     return;
+  //   }
+  //   // a fake async api call like which sends
+  //   // 20 more records in .5 secs
+  //   setTimeout(() => {
+  //     setCurrentItems()
+  //     this.setState({
+  //       items: this.state.items.concat(Array.from({ length: 20 }))
   //     });
-  // };
-
-  const fetchMoreData = () => {
-    if (!getMore) {
-      setGetMore(false)
-      return;
-    }
-    // a fake async api call like which sends
-    // 20 more records in .5 secs
-    setTimeout(() => {
-      const {fetchedItems, hasMore} = useFetch(pageNo, getMore)
-      setGetMore(hasMore)
-      setCurrentItems([...currentItems, fetchedItems])
-    }, 1);
-  };
+  //   }, 500);
+  // }
 
   return (
     <div className="app">
@@ -77,9 +121,11 @@ export default () => {
       </div>
       <div className="questionCards">
         <InfiniteScroll
-          dataLength={currentItems.length}
-          next={fetchMoreData}
-          hasMore={getMore}
+          dataLength={currentItems?.length || 0}
+          next={() => (
+            setNumberOfItems(items+1)
+          )}
+          hasMore={true}
           loader={<h4>Loading...</h4>}
           endMessage={
             <p style={{ textAlign: "center" }}>
@@ -88,23 +134,23 @@ export default () => {
           }
         >
           {currentItems?.map(item => (
-          <QuestionCard profilePicture=
-            {item.owner.profile_image} 
-            reputation={item.owner.reputation} 
-            userName={item.owner.display_name} 
-            title={item.title} 
-            upvotes={item.score} 
-            tags={item.tags} 
-            link={item.link}
-            views={item.view_count} 
-            askedAt={item.creation_date} 
-            answerCount={item.answer_count}
-          />
-        ))}
+            <QuestionCard 
+              profilePicture={item.owner.profile_image} 
+              reputation={item.owner.reputation} 
+              userName={item.owner.display_name} 
+              title={item.title} 
+              upvotes={item.score} 
+              tags={item.tags} 
+              link={item.link}
+              views={item.view_count} 
+              askedAt={item.creation_date} 
+              isAnswered={item.is_answered}
+            />
+          ))}
         </InfiniteScroll>
         {/* {currentItems && currentItems?.map(item => (
-          <QuestionCard profilePicture=
-            {item.owner.profile_image} 
+          <QuestionCard 
+            profilePicture={item.owner.profile_image} 
             reputation={item.owner.reputation} 
             userName={item.owner.display_name} 
             title={item.title} 
@@ -119,4 +165,4 @@ export default () => {
       </div>
     </div>
   );
-}
+};

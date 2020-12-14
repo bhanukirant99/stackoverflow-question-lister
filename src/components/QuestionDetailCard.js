@@ -32,7 +32,7 @@ function QuestionDetailCard({handleClose, profilePicture, reputation, userName, 
                     <div className="questionDetailCard_middleViews">
                         Views: {views}
                         <div className="questionDetailCard_middleAns">
-                            {answerCount > 0 
+                            {answerCount === true
                             ? (
                                 <span>Answered</span>
                             ) : (
