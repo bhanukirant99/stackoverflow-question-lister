@@ -9,7 +9,7 @@ export default() => {
   const pageNo = 1
   const [input, setInput] = useState('');
   const [currentItems, setCurrentItems] = useState();
-  // const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
   const [currentPageNo, setCurrentPageNo] = useState(pageNo)
 
   useEffect(async () => {
@@ -20,6 +20,7 @@ export default() => {
     // pageNo += 1;
     const [items] = resData.items
     setCurrentItems(resData.items)
+    setHasMore(resData.has_more)
   }, []);
 
   console.log("currentitems: ", currentItems)
@@ -31,6 +32,7 @@ export default() => {
     resData.items.map(item => {
       setCurrentItems([...currentItems, item])
     })
+    setHasMore(resData.has_more)
   }
 
   return (
@@ -42,11 +44,11 @@ export default() => {
         <InfiniteScroll
           dataLength={currentItems?.length || 0}
           next={getMoreItems}
-          hasMore={true}
-          loader={<h4>Loading...</h4>}
+          hasMore={hasMore}
+          loader={<h2 style={{ textAlign: "center" }}>Loading...</h2>}
           endMessage={
             <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
+              <b><h2>Yay! You have seen it all</h2></b>
             </p>
           }
         >
